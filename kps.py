@@ -9,16 +9,21 @@ def kysy_liike():
     siirtovaihtoehdot = ['kivi', 'k', 'paperi', 'p', 'sakset', 's']
     while True:
         siirto = input("Valitse siirtosi: ").strip().lower()
-        if siirto not in siirtovaihtoehdot:
-            print("Siirto ei valittavissa\n")
-        return siirto[0]
-        
-def vastustajan_valinta(siirto):
+        if siirto in siirtovaihtoehdot:
+            return siirto[0]
+        print("Siirto ei valittavissa\n")
+
+
+   
+def peli(siirto):
     vastustaja = r.choice(['k', 'p', 's'])
     if vastustaja == siirto:
         print("Tasapeli!")
+    elif (vastustaja, siirto) in [('k','s'), ('s','p'), ('p','k')]:
+        print("Hävisit!")
     else: 
-        pass
+        print("Voitit!")
 
-
-
+if __name__ == "__main__":
+    valinta = kysy_liike()
+    peli(valinta)
