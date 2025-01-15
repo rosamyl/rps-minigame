@@ -13,8 +13,6 @@ def kysy_liike():
             return siirto[0]
         print("Siirto ei valittavissa\n")
 
-
-   
 def peli(siirto):
     vastustaja = r.choice(['k', 'p', 's'])
     if vastustaja == siirto:
